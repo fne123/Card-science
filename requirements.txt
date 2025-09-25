@@ -7,7 +7,6 @@ python-multipart==0.0.9
 PyJWT==2.8.0
 SQLAlchemy==2.0.29
 sqlalchemy-utils==0.41.2
-sqlalchemy2-stubs==0.0.2a39
 uvicorn[standard]==0.27.1
 pydantic==1.10.14
 passlib[bcrypt]==1.7.4
