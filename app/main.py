@@ -1,9 +1,6 @@
 from contextlib import asynccontextmanager
 from typing import AsyncIterator
 
-from .utils.compat import ensure_forwardref_recursive_guard_default
-
-ensure_forwardref_recursive_guard_default()
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
