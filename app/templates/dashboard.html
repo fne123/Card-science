@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>我的仪表板 · Card Science Insight</title>
+    <link rel="stylesheet" href="/static/css/main.css" />
+  </head>
+  <body class="dashboard">
+    <header class="dashboard-header">
+      <div>
+        <h1>欢迎回来，{{ user.full_name or user.email }}！</h1>
+        <p>当前订阅：{{ '付费' if is_premium else '免费' }}</p>
+      </div>
+      <a class="btn secondary" href="/docs" target="_blank">查看 API</a>
+    </header>
+
+    {% if blueprint %}
+    <section class="blueprint">
+      <h2>本命蓝图</h2>
+      <div class="cards">
+        <article>
+          <h3>{{ blueprint.life_card.title }}</h3>
+          <p>{{ blueprint.life_card.description }}</p>
+          <span>{{ blueprint.life_card.advice }}</span>
+        </article>
+        <article>
+          <h3>{{ blueprint.ruling_card.title }}</h3>
+          <p>{{ blueprint.ruling_card.description }}</p>
+          <span>{{ blueprint.ruling_card.advice }}</span>
+        </article>
+        {% if blueprint.soul_resource_card %}
+        <article>
+          <h3>{{ blueprint.soul_resource_card.title }}</h3>
+          <p>{{ blueprint.soul_resource_card.description }}</p>
+          <span>{{ blueprint.soul_resource_card.advice }}</span>
+        </article>
+        {% endif %}
+        {% if blueprint.soul_challenge_card %}
+        <article>
+          <h3>{{ blueprint.soul_challenge_card.title }}</h3>
+          <p>{{ blueprint.soul_challenge_card.description }}</p>
+          <span>{{ blueprint.soul_challenge_card.advice }}</span>
+        </article>
+        {% endif %}
+      </div>
+    </section>
+    {% else %}
+    <section class="empty-state">
+      <h2>尚未填写生日</h2>
+      <p>请通过 API 更新用户资料，以便生成专属于你的纸牌科学蓝图。</p>
+    </section>
+    {% endif %}
+
+    <footer class="dashboard-footer">
+      <p>想要流年、今日牌与合盘分析？升级至付费订阅即可解锁全部功能。</p>
+    </footer>
+  </body>
+</html>
