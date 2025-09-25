@@ -37,7 +37,6 @@ uvicorn app.main:app --reload
 1. 在 Railway 创建新项目并关联此仓库。
 2. 在环境变量中配置至少以下项目：
    - `SECRET_KEY`：JWT 签名密钥。
-   - `DATABASE_URL`：建议使用 Railway 的 PostgreSQL 插件生成的连接串。Python 3.12 及以下可使用 `postgresql+asyncpg://...`，若运行环境为 Python 3.13 及以上则请改用 `postgresql+psycopg_async://...`（项目已预装 `psycopg[binary]`）。
    - SMTP 相关变量（可选）：`MAIL_USERNAME`、`MAIL_PASSWORD`、`MAIL_SMTP_HOST`、`MAIL_SMTP_PORT`、`MAIL_USE_TLS`。
 3. Railway 会自动检测 `Procfile` 并运行 `uvicorn app.main:app --host 0.0.0.0 --port $PORT`。
 
